@@ -15,7 +15,7 @@ async function handler(
     switch (event.httpMethod) {
       case "GET":
         response = await getSpaces(event, dynamodbClient);
-        break;
+        return response;
       case "POST":
         response = await postSpaces(event, dynamodbClient);
         return response;
