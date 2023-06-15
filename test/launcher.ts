@@ -1,3 +1,8 @@
-import { handler } from "../src/services/hello";
+import { handler } from "../src/services/spaces/handler";
 
-handler({} as any, {} as any);
+handler({
+  httpMethod: "GET", // "POST"
+  // body: JSON.stringify({
+  //   location: "Dubai",
+  // }),
+} as any);
