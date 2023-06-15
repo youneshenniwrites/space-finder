@@ -8,6 +8,7 @@ export async function postSpaces(
 ): Promise<APIGatewayProxyResult> {
   const randomId = v4();
 
+  // TODO: Add runtime validation
   const item = JSON.parse(event.body);
   item.id = randomId;
 
