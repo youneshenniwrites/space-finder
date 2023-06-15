@@ -3,6 +3,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { postSpaces } from "./PostSpaces";
 import { getSpaces } from "./GetSpaces";
 import { updateSpace } from "./UpdateSpace";
+import { deleteSpace } from "./DeleteSpace";
 
 const dynamodbClient = new DynamoDBClient({});
 
@@ -22,6 +23,9 @@ async function handler(
         return response;
       case "PUT":
         response = await updateSpace(event, dynamodbClient);
+        return response;
+      case "DELETE":
+        response = await deleteSpace(event, dynamodbClient);
         return response;
       default:
         break;

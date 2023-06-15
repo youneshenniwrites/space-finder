@@ -1,8 +1,11 @@
 import { handler } from "../src/services/spaces/handler";
 
 handler({
-  httpMethod: "GET", // "POST"
+  httpMethod: "GET", // "POST" "DELETE" "PUT"
+  queryStringParameters: {
+    // id: "some-id-here",
+  },
   // body: JSON.stringify({
-  //   location: "Dubai",
+  //   location: "Tokyo",
   // }),
 } as any);
