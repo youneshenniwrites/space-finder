@@ -1,5 +1,5 @@
 import { Stack, StackProps } from "aws-cdk-lib";
-import { LambdaIntegration } from "aws-cdk-lib/aws-apigateway";
+import { LambdaIntegration as LambdaApiIntegration } from "aws-cdk-lib/aws-apigateway";
 import { ITable } from "aws-cdk-lib/aws-dynamodb";
 import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import { Runtime } from "aws-cdk-lib/aws-lambda";
@@ -12,7 +12,7 @@ interface LambdaStackProps extends StackProps {
 }
 
 export class LambdaStack extends Stack {
-  public readonly spacesLambdaIntegration: LambdaIntegration;
+  public readonly spacesLamdbdaApiIntegration: LambdaApiIntegration;
 
   constructor(scope: Construct, id: string, props: LambdaStackProps) {
     super(scope, id, props);
@@ -34,6 +34,6 @@ export class LambdaStack extends Stack {
       })
     );
 
-    this.spacesLambdaIntegration = new LambdaIntegration(spacesLambda);
+    this.spacesLamdbdaApiIntegration = new LambdaApiIntegration(spacesLambda);
   }
 }
