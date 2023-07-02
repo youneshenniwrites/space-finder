@@ -17,5 +17,3 @@ new AuthStack(app, "AuthStack");
 new ApiStack(app, "ApiStack", {
   spacesLamdbdaApiIntegration: lambdaStack.spacesLamdbdaApiIntegration,
 });
-
-new AuthStack(app, "AuthStack");
