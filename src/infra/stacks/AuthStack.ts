@@ -16,6 +16,10 @@ export class AuthStack extends Stack {
     this.createUserPoolClient();
   }
 
+  getUserPool(): UserPool {
+    return this.userPool;
+  }
+
   private createUserPool() {
     this.userPool = new UserPool(this, "SpaceUserPool", {
       selfSignUpEnabled: true,

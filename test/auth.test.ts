@@ -7,7 +7,6 @@ async function testAuth() {
     process.env.AWS_COGNITO_USERNAME,
     process.env.AWS_COGNITO_PASSWORD
   );
-  console.log("LOGIN >>>>", loginResult);
 }
 
 testAuth();
