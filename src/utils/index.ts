@@ -2,6 +2,7 @@ import "dotenv/config";
 import { Amplify } from "aws-amplify";
 import { Fn, Stack } from "aws-cdk-lib";
 import { randomUUID } from "crypto";
+import { APIGatewayProxyEvent } from "aws-lambda";
 
 export function createRandomId() {
   return randomUUID();
@@ -22,4 +23,11 @@ export function configureAmplify() {
       authenticationFlowType: "USER_PASSWORD_AUTH",
     },
   });
+}
+
+export function hasAdminPrivilege(event: APIGatewayProxyEvent) {
+  const groups: string =
+    event.requestContext.authorizer?.claims["cognito:groups"];
+
+  return groups ? groups.includes("admins") : false;
 }
